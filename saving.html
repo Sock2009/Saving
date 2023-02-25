@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="uk-UA">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заощадження грошей</title>
+    <script>
+        function calculate() {
+            var amount=parseInt(document.getElementById("amount").value);
+            var rate=parseFloat(document.getElementById("rate").value);
+            var years=parseInt(document.getElementById("years").value);
+            var total=0;
+            for (let x=0; x<years; x++) {
+                total=total*(1+rate/100)+amount*12;
+            }
+            document.getElementById("output").innerHTML = "Після "+ 
+        + years +" років"+" ви накопичете "+ Math.round(total) + " USD";
+        }
+        
+    </script>
+  <style> 
+    body 
+    {margin: 0;
+    background-color: #aaffaa;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+    }
+    </style>  
+</head>
+<body>
+    <h1>Калькулятор заощадження</h1>
+    <form action="">
+        <table>
+            <tr>
+                <td>Введіть вашу місячну суму в $</td>
+                <td><input type="text" id="amount" size="5"></td>
+            </tr>
+            <tr>
+                <td>Введіть річну відсоткову ставку в %</td>
+                <td><input type="text" id="rate" size="5"></td>
+            </tr>
+            <tr>
+                <td>Введіть кількість років накопичення</td>
+                <td><input type="text" id="years" size="5"></td>
+            </tr>
+        </table>
+    </form>
+    <br>
+    <button type="button" onclick="calculate()">Натисніть для розрахунку вашого заощадження</button>
+    <h2 >Подивіться як зросте ваше заощадження.</h2>
+    <h3 id="output">Ваше заощадження</h3>
+</body>
+</html>
